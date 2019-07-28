@@ -1,0 +1,15 @@
+<button (click)="goBack()">Back</button>
+<div *ngIf="hero; else elseBlock">
+  <h2>{{ hero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ hero.id }}</div>
+  <div>
+    <label
+      >name:
+      <input [(ngModel)]="hero.name" placeholder="name" />
+    </label>
+  </div>
+  <button (click)="save()">save</button>
+</div>
+<ng-template #elseBlock>
+  <p>No hero with id {{ route.snapshot.params.id }}</p>
+</ng-template>
